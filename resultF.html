@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>내가 사랑할 연극 결과</title>
+    <style>
+
+
+        @font-face {
+            font-family: 'KOTRALEAP';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRALEAP.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+    font-family: 'TTHakgyoansimYeohaengR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimYeohaengR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+        body {
+            height: 100vh;
+            margin: 0px;
+            background: black;
+            background-image: url(./이미지/fback.png);
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-attachment: fixed;
+            background-size: contain;
+        }
+
+        .full {
+            display: flex;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            justify-content: center;
+        }
+
+        /* @media screen and (min-width: 700px) {
+            body{
+                background: black;
+            }
+        }
+*/
+
+
+        .curtain {
+            width: 100%;
+            height: 100%;
+            background-image: url(./이미지/커튼대지\ 1.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            transition: top 0.7s ease-in-out, height 0.1s ease-in-out;
+        }
+
+        .titlebox {
+            word-break: keep-all;
+            width: 100%;
+            max-width: 500px;
+            position: fixed;
+            top: 10vh;
+        
+            flex-wrap: wrap;
+        }
+        .title {
+            position: relative;
+            left: 8%;
+            width: 70%;
+            font-family: 'TTHakgyoansimYeohaengR';
+            font-size: 50px;
+            color: white;
+            
+        }
+
+        .tagbox {
+            position: relative;
+            left: 8%;
+            width: 70%;
+            margin-top: 40px;
+            font-size: 27px;
+            color: white;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            width: max-content;
+            height: 33px;
+            background-color: #EE5947;
+            padding-left: 10px;
+            padding-right: 12px;
+            margin-bottom: 5px;
+            
+        }
+        .tag span {
+            position:relative;
+            top:-7px;
+            font-family: 'TTHakgyoansimYeohaengR';
+        }
+
+        .button {
+            padding-left: 10px;
+            padding-right: 12px;
+            margin-bottom: 10px;
+            font-size:24px;
+            width: 80%;
+            height: 40px;
+            text-align: center;
+            background-color: #F39800;
+            color: white;
+            text-decoration: none;
+            
+        }
+        .button span {
+            position:relative;
+            font-family: 'TTHakgyoansimYeohaengR';
+        }
+
+        .textbox {
+            color: white;
+            word-break: keep-all;
+            width: 100%;
+            position:relative;
+            top: 100vh;
+            left: 0px;
+        }
+        .text {
+            position: relative;
+            left: 8%;
+            width: 80%;
+            font-family: "Noto Sans KR", sans-serif;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        .m-100 {
+            margin-bottom: 100px;
+        }
+
+        .black {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.1s ease-out;
+        }
+
+
+
+</style>
+
+
+</head>
+
+<body>
+
+<div class="black" style="display: flex;"></div>
+
+<div class="full">
+    <div class="titlebox">
+        <div class="title">트랙터</div>
+
+    <div class="tagbox">
+        <div class="tag">
+            <span>단편 연작</span></div>
+        <div class="tag">
+            <span>모험</span></div>
+        <div class="tag">
+            <span>웃음</span></div>
+    </div>
+
+    </div>
+
+    <div class="textbox">
+        <p class="text m-100">사흘 전 한 버스 정류장에서 황당한 사고를 함께 겪고, 우연인지 그곳에 다시 모인 이들.
+        <br><br>'몸'을 찾아달라는 아이와 배우가 벌이는 기이한 여정.
+        <br><br>엄마의 유방 X선 사진을 보고 있는 강준과 수영장 물속에서 숨을 참고 있는 지오.
+        <br><br>세 가지 각기 다른 단막극이 모였다.
+        </p>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+            <a class="button" name="goSite" href="https://www.ntck.or.kr/ko/performance/info/257080" target="_blank">
+                <span>더 자세히 보러가기</span></a>
+            <a class="button m-100" name="reset" href="https://dakyung17.github.io/youthdrama/" style="background-color: #c47f00;">
+                <span style="opacity: 0.8;">테스트 다시하기</span></a>
+        </div>
+    </div>
+
+</div>
+
+<div class="curtain" style="z-index: 10; display: flex;"></div>
+
+ <script>
+    const overlay = document.querySelector('.black');
+        
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const maxScroll = window.innerHeight; // 100vh
+        const opacity = Math.min(scrollY / maxScroll * 1.6, 0.9);
+        overlay.style.opacity = opacity;
+    });
+
+    let curtains = document.querySelector('.curtain');
+    function curtainUp(top) {
+        curtains.style.top = top;
+    }
+
+    function startaction() {
+        curtains.style.height = "105%";
+        setTimeout(()=> {
+            curtains.style.height = "100%";
+            curtainUp("-110vh");
+        },150);
+        setTimeout(()=> {
+            curtains.style.display = 'none';
+        }, 700);
+    }
+    window.addEventListener('DOMContentLoaded', startaction);
+
+</script>
+
+
+
+</body>
