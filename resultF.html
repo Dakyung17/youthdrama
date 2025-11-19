@@ -5,7 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>내가 사랑할 연극 결과</title>
     <style>
+        .scroll-arrow {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            opacity: 1;
+            pointer-events: none;
+            
+            transition: opacity 0.3s ease-out;
+            animation: bounce 1.3s infinite;
+        }
 
+        .scroll-arrow::before,
+        .scroll-arrow::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 2px;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        .scroll-arrow::before {
+            left: 0;
+            top: 50%;
+            transform: rotate(45deg);
+            transform-origin: right center;
+        }
+
+        .scroll-arrow::after {
+            right: 0;
+            top: 50%;
+            transform: rotate(-45deg);
+            transform-origin: left center;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
 
         @font-face {
             font-family: 'KOTRALEAP';
@@ -157,7 +202,7 @@
 <body>
 
 <div class="black" style="display: flex;"></div>
-
+<div class="scroll-arrow"></div>
 <div class="full">
     <div class="titlebox">
         <div class="title">트랙터</div>
@@ -217,8 +262,22 @@
         }, 700);
     }
     window.addEventListener('DOMContentLoaded', startaction);
-
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const fadeStart = 50;
+        const fadeEnd = 200;
+        
+        if (scrollY < fadeStart) {
+            scrollArrow.style.opacity = '1';
+        } else if (scrollY >= fadeStart && scrollY <= fadeEnd) {
+            const opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
+            scrollArrow.style.opacity = opacity;
+        } else {
+            scrollArrow.style.opacity = '0';
+        }
+    });
 </script>
+
 
 
 
